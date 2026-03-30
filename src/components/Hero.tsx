@@ -19,12 +19,19 @@ export default function Hero() {
       ref={ref}
       className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-navy-900"
     >
-      {/* Background Layer: Neural Network */}
+      {/* Background Layer: Image & Neural Network */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute inset-0 z-0 opacity-30"
+        className="absolute inset-0 z-0"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-navy-900 to-navy-900"></div>
+        {/* Placeholder for relevant background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=2000&auto=format&fit=crop')" }}
+        />
+        {/* Gradient mask to ensure text readability on the left */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent opacity-30"></div>
         {/* Animated Particles/Nodes */}
         {Array.from({ length: 30 }).map((_, i) => (
           <motion.div
@@ -52,10 +59,10 @@ export default function Hero() {
       {/* Midground Layer: DNA Helix / Abstract Shapes */}
       <motion.div
         style={{ y: midY }}
-        className="absolute inset-0 z-10 flex items-center justify-center opacity-40 pointer-events-none"
+        className="absolute inset-0 z-10 flex items-center justify-end opacity-40 pointer-events-none pr-10 lg:pr-32"
       >
         <svg
-          className="w-full h-full max-w-4xl"
+          className="w-full h-full max-w-2xl"
           viewBox="0 0 800 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +108,7 @@ export default function Hero() {
       {/* Foreground Layer: Text & CTA */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-20 max-w-5xl mx-auto px-6 text-center"
+        className="relative z-20 max-w-7xl mx-auto px-6 w-full flex flex-col items-start text-left"
       >
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -117,7 +124,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[1.1]"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[1.1] max-w-4xl"
         >
           Predict. Personalize. <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400">
@@ -129,7 +136,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+          className="text-lg md:text-xl text-white/60 max-w-2xl mb-12 font-light leading-relaxed"
         >
           An AI-powered system combining genomics, real-time health data and neuroadaptive technology to extend human healthspan.
         </motion.p>
@@ -138,7 +145,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-start gap-4"
         >
           <button className="glow-button w-full sm:w-auto bg-white text-navy-900 px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300">
             Watch How GOQii Works
